@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Waleed</title>
+  <style>
+    body {
+      margin: 0;
+      background: red;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: fly 5s infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes fly {
+      0% {
+        top: 100%;
+        left: calc(100% * var(--i));
+        opacity: 1;
+      }
+      100% {
+        top: -20px;
+        left: calc(100% * var(--i) + 50px);
+        opacity: 0;
+      }
+    }
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
+    .bears {
+      font-size: 50px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      background: #fff;
+      color: red;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="birthday.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="center">
+  <div class="bears">🧸 🧸</div>
+  <h1>Happy Birthday Waleed!</h1>
+  <a href="page2.html">Tap Here</a>
+</div>
+
+<script>
+  for (let i = 0; i < 50; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.setProperty("--i", Math.random());
+    document.body.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
